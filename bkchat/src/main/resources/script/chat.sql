@@ -6,7 +6,7 @@
 
 --drop table if exists DESTINATION_MESSAGE;
 
-drop table if exists GROUP;
+drop table if exists GROUPS;
 
 drop table if exists GROUP_USER;
 
@@ -14,7 +14,7 @@ drop table if exists GROUP_USER;
 
 --drop table if exists STATUS;
 
-drop table if exists USER;
+drop table if exists USERS;
 
 /*==============================================================*/
 /* Table: DESTINATION_MESSAGE                                   */
