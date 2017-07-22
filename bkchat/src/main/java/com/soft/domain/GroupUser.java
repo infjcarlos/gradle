@@ -10,12 +10,15 @@ import javax.persistence.*;
 public class GroupUser {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "group_user_id")
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "group_id")
     private Group group;
 
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
     public Long getId() {

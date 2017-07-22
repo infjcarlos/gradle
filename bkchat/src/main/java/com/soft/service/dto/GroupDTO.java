@@ -1,30 +1,16 @@
-package com.soft.domain;
+package com.soft.service.dto;
 
-import javax.persistence.*;
 import java.util.Date;
 
 /**
- * Created by jcarlos on 7/21/2017.
+ * Created by jcarlos on 7/22/2017.
  */
-@Entity
-@Table(name = "groups")
-public class Group {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "group_id")
+public class GroupDTO {
+
     private Long id;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User owner;
-
-    @Column(name = "name", length = 300)
+    private Long ownerId;
     private String name;
-
-    @Column(name = "logo", length = 100)
     private String logo;
-
-    @Column(name = "creation_date")
     private Date creationDate;
 
     public Long getId() {
@@ -35,12 +21,12 @@ public class Group {
         this.id = id;
     }
 
-    public User getOwner() {
-        return owner;
+    public Long getOwnerId() {
+        return ownerId;
     }
 
-    public void setOwner(User owner) {
-        this.owner = owner;
+    public void setOwnerId(Long ownerId) {
+        this.ownerId = ownerId;
     }
 
     public String getName() {

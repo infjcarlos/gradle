@@ -1,34 +1,17 @@
-package com.soft.domain;
+package com.soft.service.dto;
 
-import javax.persistence.*;
+import java.io.Serializable;
 
 /**
- * Created by jcarlos on 7/20/2017.
+ * Created by jcori on 6/30/2017.
  */
-@Entity
-@Table(name = "users")
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "user_id")
+public class UserDTO implements Serializable{
     private Long id;
-
-    @Column(name = "firstname",length = 200)
     private String firstname;
-
-    @Column(name = "lastname",length = 200)
     private String lastname;
-
-    @Column(name = "email",length = 150)
     private String email;
-
-    @Column(name = "username",length = 100)
     private String username;
-
-    @Column(name = "password",length = 200)
     private String password;
-
-    @Column(name = "status",length = 50)
     private String status;
 
     public Long getId() {
