@@ -1,9 +1,6 @@
 package com.soft.web.rest;
 
-//import com.codahale.metrics.annotation.Timed;
 import com.codahale.metrics.annotation.Timed;
-import com.soft.domain.User;
-import com.soft.domain.enumeration.UserType;
 import com.soft.service.UserService;
 import com.soft.service.dto.UserDTO;
 import com.soft.web.rest.util.HeaderUtil;
