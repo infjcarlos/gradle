@@ -1,7 +1,9 @@
 package com.soft.service.impl;
 
 import com.soft.domain.Group;
+import com.soft.domain.User;
 import com.soft.repository.GroupRepository;
+import com.soft.repository.UserRepository;
 import com.soft.service.GroupService;
 import com.soft.service.dto.GroupDTO;
 import com.soft.service.mapper.GroupMapper;
@@ -22,10 +24,12 @@ public class GroupServiceImpl implements GroupService{
     private final Logger log = LoggerFactory.getLogger(GroupServiceImpl.class);
 
     private final GroupRepository groupRepository;
+    private final UserRepository userRepository;
     private final GroupMapper groupMapper;
 
-    public GroupServiceImpl(GroupRepository groupRepository, GroupMapper groupMapper) {
+    public GroupServiceImpl(GroupRepository groupRepository, UserRepository userRepository, GroupMapper groupMapper) {
         this.groupRepository = groupRepository;
+        this.userRepository = userRepository;
         this.groupMapper = groupMapper;
     }
 
@@ -33,6 +37,8 @@ public class GroupServiceImpl implements GroupService{
     public GroupDTO save(GroupDTO dDTO) {
         log.debug("Request to save GroupDTO : {}", dDTO);
         Group group = groupMapper.toEntity(dDTO);
+        User user = userRepository.findOne(dDTO.getOwnerId());
+        group.setOwner(user);
         group = groupRepository.save(group);
         GroupDTO result = groupMapper.toDto(group);
         return result;

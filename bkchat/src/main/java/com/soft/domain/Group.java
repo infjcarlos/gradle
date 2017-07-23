@@ -1,5 +1,7 @@
 package com.soft.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -16,6 +18,7 @@ public class Group {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private User owner;
 
     @Column(name = "name", length = 300)
