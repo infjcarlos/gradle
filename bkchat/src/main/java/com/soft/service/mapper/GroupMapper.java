@@ -4,7 +4,6 @@ import com.soft.domain.Group;
 import com.soft.service.dto.GroupDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.Mappings;
 
 /**
  * Created by jcarlos on 7/22/2017.

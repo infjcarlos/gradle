@@ -1,6 +1,5 @@
 package com.soft.web.rest;
 
-
 import com.codahale.metrics.annotation.Timed;
 import com.soft.service.GroupService;
 import com.soft.service.dto.GroupDTO;
