@@ -1,13 +1,16 @@
 package com.soft.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by jcarlos on 7/20/2017.
  */
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Serializable{
+
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")

@@ -4,24 +4,22 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * Created by jcarlos on 7/21/2017.
+ * Created by jcarlos on 7/25/2017.
  */
 @Entity
-@Table(name = "group_user")
-public class GroupUser implements Serializable {
-
+@Table(name = "destination_message")
+public class DestinationMessage implements Serializable {
     private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "group_user_id")
+    @Column(name = "destination_message_id")
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "group_id")
-    private Group group;
+    @Column(name = "message_id")
+    private Message message;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
+    @Column(name = "user_id")
     private User user;
 
     public Long getId() {
@@ -32,12 +30,12 @@ public class GroupUser implements Serializable {
         this.id = id;
     }
 
-    public Group getGroup() {
-        return group;
+    public Message getMessage() {
+        return message;
     }
 
-    public void setGroup(Group group) {
-        this.group = group;
+    public void setMessage(Message message) {
+        this.message = message;
     }
 
     public User getUser() {
