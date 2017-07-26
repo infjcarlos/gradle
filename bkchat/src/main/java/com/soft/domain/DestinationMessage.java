@@ -16,10 +16,12 @@ public class DestinationMessage implements Serializable {
     @Column(name = "destination_message_id")
     private Long id;
 
-    @Column(name = "message_id")
+    @ManyToOne
+    @JoinColumn(name = "message_id")
     private Message message;
 
-    @Column(name = "user_id")
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
     public Long getId() {

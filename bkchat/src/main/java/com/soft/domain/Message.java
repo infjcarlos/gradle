@@ -2,7 +2,7 @@ package com.soft.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.util.*;
 
 /**
  * Created by jcarlos on 7/25/2017.
@@ -23,11 +23,21 @@ public class Message implements Serializable {
     @Column(name = "creation_date")
     private Date creationDate;
 
-    @Column(name = "status_id")
+    @ManyToOne
+    @JoinColumn(name = "status_id")
     private Status status;
 
-    @Column(name = "user_id")
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
+
+    //to delete and for insert
+    @OneToMany(mappedBy = "message", cascade = CascadeType.ALL)
+    private Set<DestinationMessage> destinationMessages;
+
+    public Message() {
+        this.destinationMessages = new HashSet<DestinationMessage>();
+    }
 
     public Long getId() {
         return id;
@@ -67,5 +77,13 @@ public class Message implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Set<DestinationMessage> getDestinationMessages() {
+        return destinationMessages;
+    }
+
+    public void setDestinationMessages(Set<DestinationMessage> destinationMessages) {
+        this.destinationMessages = destinationMessages;
     }
 }
