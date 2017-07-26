@@ -1,5 +1,7 @@
 package com.soft.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.*;
@@ -25,10 +27,12 @@ public class Message implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "status_id")
+    @JsonIgnore
     private Status status;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private User user;
 
     //to delete and for insert

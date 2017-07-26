@@ -1,5 +1,7 @@
 package com.soft.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -18,10 +20,12 @@ public class DestinationMessage implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "message_id")
+    @JsonIgnore
     private Message message;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private User user;
 
     public Long getId() {
